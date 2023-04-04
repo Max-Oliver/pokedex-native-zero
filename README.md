@@ -1,6 +1,16 @@
 # pokedex-native-zero
 Pokedex React Native IOS / Android
 
+
+### Setting up
+
+Start the IOS simulator in Xamarin App
+> yarn install
+
+> yarn ios
+
+
+
 ### Pokedex 
 Api de Pokemon: con scroll infinito cargando con limit y offset de 20 , 0;
 
