@@ -5,8 +5,11 @@ import Header from "../components/pokemon/Header";
 import Type from "../components/pokemon/Type";
 import Stats from "../components/pokemon/Stats";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import Favorite from "../components/pokemon/Favorite";
+import useAuth from "../hooks/UseAuth";
 
 export default function Pokemon(props) {
+  const { auth } = useAuth();
   const {
     navigation,
     route: { params },
@@ -16,7 +19,7 @@ export default function Pokemon(props) {
 
   useEffect(() => {
     navigation.setOptions({
-      headerRight: () => null,
+      headerRight: () => auth && <Favorite id={id}/>,
       headerLeft: () => (
         <MaterialCommunityIcons
           name="arrow-left"

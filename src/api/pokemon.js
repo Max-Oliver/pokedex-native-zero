@@ -2,8 +2,8 @@ import { API_HOST } from "../utils/constants";
 
 export async function getPokemonsApi(nextPageUrl) {
   try {
-    const baseUrl = `/pokemon?limit=${20}$offset=${0}`;
-    const url = `${API_HOST}/${baseUrl}`;
+    const baseUrl = `pokemon?offset=${0}&limit=${20}`;
+    const url = `${API_HOST}${baseUrl}`;
     return await fetch(nextPageUrl || url).then((res) => res.json());
   } catch (error) {
     throw error;

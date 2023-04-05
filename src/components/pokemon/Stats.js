@@ -4,8 +4,6 @@ import { map, capitalize } from "lodash";
 
 export default function Stats(props) {
   const { stats } = props;
-  console.log(stats);
-
   const barStyles = (num) => {
       return {
           backgroundColor: num > 49 ? '#00ac17' : '#ff3e3e',

@@ -1,12 +1,24 @@
-import { Text, SafeAreaView } from "react-native";
-import React, { Component } from "react";
+import { Text, SafeAreaView, View } from "react-native";
+import React, { Component, useState } from "react";
+import LoginForm from "../components/Auth/LoginForm";
+import UserData from "../components/Auth/UserData";
+import useAuth from "../hooks/UseAuth";
 
-export default class AccountScreen extends Component {
-  render() {
-    return (
-        <SafeAreaView>
-          <Text>This is the Account</Text>
-        </SafeAreaView>
-    );
-  }
+export default function AccountScreen() {
+  const { auth } = useAuth();
+
+  return (
+    <View>
+      {auth ? (
+        <UserData
+          username={auth.username}
+          firstName={auth.firstName}
+          lastName={auth.lastName}
+          email={auth.email}
+        />
+      ) : (
+        <LoginForm />
+      )}
+    </View>
+  );
 }
