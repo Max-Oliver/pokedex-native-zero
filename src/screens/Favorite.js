@@ -1,12 +1,30 @@
-import { Text, SafeAreaView } from "react-native";
-import React, { Component } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { Text } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
+import { getPokemonInFavoriteApi } from "../api/favorite";
+import { buildPokemonsArrayById } from "../utils/sharedLogic";
+import useAuth from "../hooks/UseAuth";
+import Pokemonlist from "../components/Pokemonlist";
 
-export default class FavoriteScreen extends Component {
-  render() {
-    return (
-        <SafeAreaView>
-          <Text>This is the Favorite 😜</Text>
-        </SafeAreaView>
-    );
-  }
+export default function FavoriteScreen() {
+  const [pokemons, setPokemons] = useState([]);
+  const { auth } = useAuth();
+  
+  useFocusEffect(
+    useCallback(() => {
+      if (auth) {
+        (async () => {
+          const favsPokeIds = await getPokemonInFavoriteApi();
+          const pokeFavsDetails = await buildPokemonsArrayById(favsPokeIds);
+          setPokemons([...pokemons, ...pokeFavsDetails]);
+        })();
+      }
+    }, [auth])
+  );
+
+  return !auth ? (
+    <Text>Usuario no logueado</Text>
+  ) : (
+    <Pokemonlist pokemons={pokemons} />
+  );
 }
