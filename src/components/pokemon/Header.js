@@ -5,10 +5,7 @@ import getColorByPokemonType from "../../utils/getColorByPokemonType";
 
 export default function Header(props) {
   const { type, name, order, image } = props;
-  console.log(props);
-
   const color = getColorByPokemonType(type);
-
   const bgStyle = [
     {
       backgroundColor: color,

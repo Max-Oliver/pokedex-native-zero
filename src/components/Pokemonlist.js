@@ -9,7 +9,7 @@ import PokemonCards from "./PokemonCards";
 
 export default function Pokemonlist(props) {
   const { pokemons, loadPokemons, isNext } = props;
-
+  
   const loadMore = () => {
     loadPokemons();
   };

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import Ionicons from "react-native-vector-icons/FontAwesome5";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FavoriteNavigation from './FavoriteNavigation'
 import PokedexNavigation from './PokedexNavigation'
@@ -12,7 +11,7 @@ const Tab = createBottomTabNavigator();
 export default class Navigation extends Component {
   render() {
     return (
-      <Tab.Navigator>
+      <Tab.Navigator initialRouteName='TabAccount'>
         <Tab.Screen
           name="TabFavorites"
           component={FavoriteNavigation}
