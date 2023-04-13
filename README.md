@@ -1,7 +1,6 @@
 # pokedex-native-zero
 Pokedex React Native IOS / Android
 
-
 ### Setting up
 
 Start the IOS simulator in Xamarin App
@@ -9,7 +8,22 @@ Start the IOS simulator in Xamarin App
 
 > yarn ios
 
+### Build
 
+#### Install eas-cli
+> npm i -g eas-cli
+
+#### Start build for IOS
+> eas build --platform ios --auto-submit 
+
+You should login in EAS account and then in Apple Account too.
+
+### Docs
+
+Build IOS docs:
+- https://docs.expo.dev/archive/classic-updates/building-standalone-apps/
+- https://docs.expo.dev/build-reference/ios-builds/
+- https://expo.dev/accounts/creative.labs/projects/creative-labs-pokedex
 
 ### Pokedex 
 Api de Pokemon: con scroll infinito cargando con limit y offset de 20 , 0;
