@@ -6,6 +6,9 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "build-ios": "eas build -p ios",
+    "expo-build-ios": "expo build:ios",
+    "eas-login": "eas login",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -17,6 +20,7 @@
     "@react-navigation/material-top-tabs": "^5.3.19",
     "@react-navigation/native": "*",
     "@react-navigation/native-stack": "*",
+    "eas-cli": "^3.9.2",
     "expo": "~48.0.9",
     "expo-status-bar": "~1.4.4",
     "formik": "^2.2.9",

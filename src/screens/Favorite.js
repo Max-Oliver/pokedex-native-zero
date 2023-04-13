@@ -5,6 +5,7 @@ import { getPokemonInFavoriteApi } from "../api/favorite";
 import { buildPokemonsArrayById } from "../utils/sharedLogic";
 import useAuth from "../hooks/UseAuth";
 import Pokemonlist from "../components/Pokemonlist";
+import NotLogged from '../components/NotLogged'
 
 export default function FavoriteScreen() {
   const [pokemons, setPokemons] = useState([]);
@@ -23,7 +24,7 @@ export default function FavoriteScreen() {
   );
 
   return !auth ? (
-    <Text>Usuario no logueado</Text>
+    <NotLogged />
   ) : (
     <Pokemonlist pokemons={pokemons} />
   );
